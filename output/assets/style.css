@@ -1,0 +1,52 @@
+
+.cyt{
+    font-style: italic;
+    font-weight: 900;
+    color: rgb(92, 18, 175);
+}
+.team-heading{
+    height: 4em;
+    padding: 5px;
+    background: linear-gradient(to right,blue,rgb(61, 61, 158),rgb(6, 81, 104));   
+    -webkit-text-fill-color: aliceblue;   
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0%;
+}
+.card{    
+    margin:1em;
+    box-shadow: 0 0 5px;
+    padding: 2px 2px;
+}
+
+.card-title{
+    font-size: 20px;
+    text-align: center;
+}
+.manager-card .card-header{
+    background-color: rgb(0, 26, 255);
+    color: antiquewhite;
+   
+}
+
+.engineer-card .card-header{
+    background-color: rgb(255, 115, 0);   
+    color: azure;
+}
+
+.intern-card .card-header{
+    background-color: rgb(210, 224, 127);  
+    color: rgb(61, 56, 9); 
+}
+
+.container{
+    width: 80%;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
