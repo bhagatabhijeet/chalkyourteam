@@ -1,29 +1,30 @@
 {
-  "name": "unit10hw",
+  "name": "chalkyourteam",
   "version": "1.0.0",
-  "description": "OOP and testing for week 10 homework",
+  "description": "chalkyourteam is a  Node CLI app that takes in information about employees and generates an HTML webpage that displays summaries for each person.",
   "main": "app.js",
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
-    "test": "jest --verbose test/*"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stevetrilogy/unit10hw.git"
+    "url": "git+https://github.com/bhagatabhijeet/chalkyourteam.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stevetrilogy/unit10hw/issues"
+    "url": "https://github.com/bhagatabhijeet/chalkyourteam/issues"
   },
-  "homepage": "https://github.com/stevetrilogy/unit10hw#readme",
-  "dependencies": {
-    "inquirer": "^6.3.1"
-  },
+  "homepage": "https://github.com/bhagatabhijeet/chalkyourteam#readme",
   "devDependencies": {
-    "jest": "^24.8.0"
+    "jest": "^26.4.2"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3"
   }
 }
