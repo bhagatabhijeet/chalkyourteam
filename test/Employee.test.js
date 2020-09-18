@@ -46,3 +46,9 @@ test("getRole() should return \"Employee\"", () => {
   const e = new Employee("Alice", 1, "test@test.com");
   expect(e.getRole()).toBe(testValue);
 });
+
+test("email is in string@xxx.yyy format", () => {
+  const testValue = "Employee";
+  const e = new Employee("Alice", 1, "test@test.com");
+  expect(e.getEmail()).toMatch(/[a-zA-Z]+@[a-zA-z0-9]+\.[a-zA-Z]{3}/);
+});
