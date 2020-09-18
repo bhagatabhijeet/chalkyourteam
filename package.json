@@ -25,6 +25,7 @@
     "jest": "^26.4.2"
   },
   "dependencies": {
-    "inquirer": "^7.3.3"
+    "inquirer": "^7.3.3",
+    "lodash": "^4.17.20"
   }
 }
