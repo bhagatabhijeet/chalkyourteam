@@ -1,6 +1,7 @@
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const questions = require("./lib/questions");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -9,9 +10,61 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const employeeList = [];
 
 
 // Write code to use inquirer to gather information about the development team members,
+async function askQuestions(role) {
+    let employeeDetails = await inquirer.prompt(questions(role));
+    return employeeDetails;
+}
+
+async function init() {
+    let contineAsking = true;
+    while (contineAsking) {
+        let empRole = await inquirer.prompt([
+            {
+                type: "list",
+                message: "Select Role : ",
+                name: "role",
+                choices: ["Manager", "Engineer", "Intern"]
+            }
+        ]);
+        // console.log(empRole.role);
+        
+        let employee = await askQuestions(empRole.role);
+
+        switch (empRole.role) {
+            case "Manager":
+                employeeList.push(new Manager(employee.empname, employee.empid,
+                    employee.empemail, employee.officeid));
+                break;
+            case "Engineer":
+                employeeList.push(new Engineer(employee.empname, employee.empid,
+                    employee.empemail, employee.github));
+                break;
+            case "Intern":
+                employeeList.push(new Intern(employee.empname, employee.empid,
+                    employee.empemail, employee.school));
+                break;
+        }
+
+        const keepAsking = await inquirer.prompt({
+            type: "confirm",
+            message: "Want to add more employees : ",
+            name: "wantToContine"
+        });
+        contineAsking = keepAsking.wantToContine;
+        // console.log("user wants to continue : " + contineAsking);
+    }
+    employeeList.forEach(e=>console.log(e.getRole()));
+    // console.log(render(employeeList));
+    fs.writeFileSync(path.join("output","team.html"),render(employeeList));
+}
+
+init();
+// console.log(questions("Engineer"));
+// console.log(questions("Intern"));
 // and to create objects for each team member (using the correct classes as blueprints!)
 
 // After the user has input all employees desired, call the `render` function (required
