@@ -29,6 +29,11 @@ To install dependencies, run the following command: <code>npm install</code>
 To run the app un the following command: <code>node app</code>
 
 ### Sample HTML Output
+![Sample output](https://github.com/bhagatabhijeet/chalkyourteam/raw/master/projassets/output_team_html.png)
+
+### Demo
+![demo](https://github.com/bhagatabhijeet/chalkyourteam/raw/master/projassets/demo.gif)
+
 
 ## License
 This project is licensed under the [MIT license](https://github.com/bhagatabhijeet/chalkyourteam/blob/master/LICENSE)
@@ -40,7 +45,11 @@ You may fork and clone the project though.
 ## Tests
 To run a test use the following command: 
 <code>npm test</code>
-The test report can be found here [Test Report](https://bhagatabhijeet.github.io/chalkyourteam/jest_html_reporters.html)
+* Everytime you run the test using the above command a test report named 'jest_html_reporters.html' is generated.
+* One such test report is uploaded here : [Test Report](https://bhagatabhijeet.github.io/chalkyourteam/jest_html_reporters.html)
+
+### Test Demo
+![Tets demo](https://github.com/bhagatabhijeet/chalkyourteam/raw/master/projassets/test_demo.gif)
 
 ### Sample Test Output
  ![Sample Tets output](https://github.com/bhagatabhijeet/chalkyourteam/raw/master/projassets/sample_test_output.png)
