@@ -42,6 +42,9 @@ To run a test use the following command:
 <code>npm test</code>
 The test report can be found here [Test Report](https://bhagatabhijeet.github.io/chalkyourteam/jest_html_reporters.html)
 
+### Sample Test Output
+ ![Sample Tets output](https://github.com/bhagatabhijeet/chalkyourteam/raw/master/projassets/sample_test_output.png)
+
 
 ## Questions
 If you have any questions you can contact me direct at <bhagat.abhijeet@gmail.com>.
