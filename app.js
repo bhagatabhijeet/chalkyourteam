@@ -3,6 +3,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const questions = require("./lib/questions");
 const inquirer = require("inquirer");
+const boxen = require("boxen");
+const chalk = require("chalk");
 const path = require("path");
 const fs = require("fs");
 
@@ -12,13 +14,33 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 const employeeList = [];
 
+console.log(
+    boxen(`
+                                ${chalk.blue(chalk.bold(`Welcome to ${chalk.underline('Chalk Your Team')}`))}
+    
+    Chalk Your Team is a Team Profile Generator. It will Generate Your Team's Profile HTML so that you can visually
+    see your team members' profile.
+    
+    ${chalk.cyanBright(chalk.bold("Developer: Abhijeet Bhagat"))}
+    ${chalk.cyanBright("GitHub: https://github.com/bhagatabhijeet/chalkyourteam")}
+    ${chalk.yellowBright('v1.0')}
+    `, 
+    { 
+    padding: 1 ,
+    borderColor:'magentaBright',
+    borderStyle:'round',
+    float:'center',  
+    
+}));
 
-// Write code to use inquirer to gather information about the development team members,
+
+// inquirer to gather information about the development team members,
 async function askQuestions(role) {
     let employeeDetails = await inquirer.prompt(questions(role));
     return employeeDetails;
 }
 
+// Main 
 async function init() {
     let contineAsking = true;
     while (contineAsking) {
