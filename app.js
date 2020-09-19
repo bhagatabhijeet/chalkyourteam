@@ -42,6 +42,9 @@ async function askQuestions(role) {
 
 // Main 
 async function init() {
+    // Brief Help
+    console.log(`${chalk.red('*')} -  indicated required field.`);
+    
     // Flag to indicate if we should continue asking questions
     let contineAsking = true;
     while (contineAsking) {
@@ -85,6 +88,7 @@ async function init() {
 
     // Writing the final rendered html to output team.html
     fs.writeFileSync(path.join("output","team.html"),render(questions.employeeList));
+    console.log(`${chalk.magentaBright(`Thanks for Using Chalk Your Team. Outputfile : ${path.resolve("output","team.html")}`)}`)
 }
 
 // call to init. Init is the main function
