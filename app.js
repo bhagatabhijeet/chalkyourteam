@@ -13,7 +13,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
+// Welcome screen
 console.log(
     boxen(`
                                 ${chalk.blue(chalk.bold(`Welcome to ${chalk.underline('Chalk Your Team')}`))}
@@ -42,6 +42,7 @@ async function askQuestions(role) {
 
 // Main 
 async function init() {
+    // Flag to indicate if we should continue asking questions
     let contineAsking = true;
     while (contineAsking) {
         let empRole = await inquirer.prompt([
@@ -49,12 +50,15 @@ async function init() {
                 type: "list",
                 message: "Select Role : ",
                 name: "role",
+                // Predefined roles : Manager, Engineer and Intern
                 choices: ["Manager", "Engineer", "Intern"]
             }
         ]);
-                
+        
+        // Main questions
         let employee = await askQuestions(empRole.role);
 
+        // Switch statement to create Specific Employee Objects
         switch (empRole.role) {
             case "Manager":
                 questions.employeeList.push(new Manager(employee.empname, employee.empid,
@@ -70,6 +74,7 @@ async function init() {
                 break;
         }
 
+        // This is where user confirms if he wants to continue
         const keepAsking = await inquirer.prompt({
             type: "confirm",
             message: "Want to add more employees : ",
@@ -78,7 +83,9 @@ async function init() {
         contineAsking = keepAsking.wantToContine;        
     }
 
+    // Writing the final rendered html to output team.html
     fs.writeFileSync(path.join("output","team.html"),render(questions.employeeList));
 }
 
+// call to init. Init is the main function
 init();
