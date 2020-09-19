@@ -12,7 +12,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-const employeeList = [];
+
 
 console.log(
     boxen(`
@@ -36,7 +36,7 @@ console.log(
 
 // inquirer to gather information about the development team members,
 async function askQuestions(role) {
-    let employeeDetails = await inquirer.prompt(questions(role));
+    let employeeDetails = await inquirer.prompt(questions.getQuestions(role));
     return employeeDetails;
 }
 
@@ -57,15 +57,15 @@ async function init() {
 
         switch (empRole.role) {
             case "Manager":
-                employeeList.push(new Manager(employee.empname, employee.empid,
+                questions.employeeList.push(new Manager(employee.empname, employee.empid,
                     employee.empemail, employee.officeid));
                 break;
             case "Engineer":
-                employeeList.push(new Engineer(employee.empname, employee.empid,
+                questions.employeeList.push(new Engineer(employee.empname, employee.empid,
                     employee.empemail, employee.github));
                 break;
             case "Intern":
-                employeeList.push(new Intern(employee.empname, employee.empid,
+                questions.employeeList.push(new Intern(employee.empname, employee.empid,
                     employee.empemail, employee.school));
                 break;
         }
@@ -78,7 +78,7 @@ async function init() {
         contineAsking = keepAsking.wantToContine;        
     }
 
-    fs.writeFileSync(path.join("output","team.html"),render(employeeList));
+    fs.writeFileSync(path.join("output","team.html"),render(questions.employeeList));
 }
 
 init();
