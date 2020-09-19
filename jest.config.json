@@ -1,0 +1,12 @@
+{
+    "reporters" : [
+        "default",
+        [
+            "./node_modules/jest-html-reporters",
+            {
+                "pageTitle": "Chalk Your Team Test Report",
+                "outputPath": "./test/cyt_test_report.html"
+            }
+        ]
+    ]
+}
